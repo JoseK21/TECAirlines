@@ -46,7 +46,7 @@
         </div>
         <div class="col">
           <h3 id="down"></h3>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
         </div>
       </div>
     </form>
@@ -68,7 +68,8 @@
           <td>Mark</td>
           <td>Otto</td>
           <td>
-            <button class="btn btn-outline-primary my-2 my-sm-0 btn-block" type="submit" routerLink="/">Go</button>
+              <button type="button" class="btn btn-outline-primary my-2 my-sm-0 btn-block" data-toggle="modal"
+              data-target="#exampleModal" data-whatever="@mdo">Go</button>
           </td>
         </tr>
         <tr>
@@ -76,7 +77,8 @@
           <td>Jacob</td>
           <td>Thornton</td>
           <td>
-            <button class="btn btn-outline-primary my-2 my-sm-0 btn-block" type="submit" routerLink="/">Go</button>
+              <button type="button" class="btn btn-outline-primary my-2 my-sm-0 btn-block" data-toggle="modal"
+              data-target="#exampleModal" data-whatever="@mdo">Go</button>
           </td>
         </tr>
         <tr>
@@ -84,7 +86,8 @@
           <td>Larry</td>
           <td>the Bird</td>
           <td>
-            <button class="btn btn-outline-primary my-2 my-sm-0 btn-block" type="submit" routerLink="/">Go</button>
+              <button type="button" class="btn btn-outline-primary my-2 my-sm-0 btn-block" data-toggle="modal"
+              data-target="#exampleModal" data-whatever="@mdo">Go</button>
           </td>
         </tr>
         <tr>
@@ -92,7 +95,8 @@
           <td>Larry</td>
           <td>the Bird</td>
           <td>
-            <button class="btn btn-outline-primary my-2 my-sm-0 btn-block" type="submit" routerLink="/">Go</button>
+              <button type="button" class="btn btn-outline-primary my-2 my-sm-0 btn-block" data-toggle="modal"
+              data-target="#exampleModal" data-whatever="@mdo">Go</button>
           </td>
         </tr>
         <tr>
@@ -100,7 +104,8 @@
           <td>Larry</td>
           <td>the Bird</td>
           <td>
-            <button class="btn btn-outline-primary my-2 my-sm-0 btn-block" type="submit" routerLink="/">Go</button>
+              <button type="button" class="btn btn-outline-primary my-2 my-sm-0 btn-block" data-toggle="modal"
+              data-target="#exampleModal" data-whatever="@mdo">Go</button>
           </td>
         </tr>
         <tr>
@@ -108,7 +113,8 @@
           <td>Larry</td>
           <td>the Bird</td>
           <td>
-            <button class="btn btn-outline-primary my-2 my-sm-0 btn-block" type="submit" routerLink="/">Go</button>
+              <button type="button" class="btn btn-outline-primary my-2 my-sm-0 btn-block" data-toggle="modal"
+              data-target="#exampleModal" data-whatever="@mdo">Go</button>
           </td>
         </tr>
         <tr>
@@ -116,7 +122,8 @@
           <td>Larry</td>
           <td>the Bird</td>
           <td>
-            <button class="btn btn-outline-primary my-2 my-sm-0 btn-block" type="submit" routerLink="/">Go</button>
+              <button type="button" class="btn btn-outline-primary my-2 my-sm-0 btn-block" data-toggle="modal"
+              data-target="#exampleModal" data-whatever="@mdo">Go</button>
           </td>
         </tr>
         <tr>
@@ -124,12 +131,59 @@
           <td>Larry</td>
           <td>the Bird</td>
           <td>
-            <button class="btn btn-outline-primary my-2 my-sm-0 btn-block" type="submit" routerLink="/">Go</button>
+            <button type="button" class="btn btn-outline-primary my-2 my-sm-0 btn-block" data-toggle="modal"
+              data-target="#exampleModal" data-whatever="@mdo">Go</button>
           </td>
         </tr>
       </tbody>
     </table>
 
     <br>
+  </div>
+</div>
+
+<!--MODAL -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Reservation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+
+
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label"> Airport of origin:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+
+
+          <div>
+            <label for="message-text" class="col-form-label">Arrival airport:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+
+          <div>
+              <label for="message-text" class="col-form-label">Credit card:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+
+
+
+        </form>
+      </div>
+
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">To buy</button>
+      </div>
+    </div>
   </div>
 </div>

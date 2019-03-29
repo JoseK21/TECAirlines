@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registry.component.css']
 })
 export class RegistryComponent implements OnInit {
+  s:boolean = false;
 
   constructor() { }
 
