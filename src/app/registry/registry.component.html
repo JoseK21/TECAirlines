@@ -33,21 +33,11 @@
           </div>
         </div>
       </div>
-      <div class="custom-control custom-checkbox my-1 mr-sm-2">
-          <input type="checkbox" class="custom-control-input" id="customControlInline" >
-          <label class="custom-control-label" for="customControlInline">Student</label>
-      </div>
-
-      <!--Add 2 input : Student-->
-      <div class="form-row" *ngIf="s==true">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="First name">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Last name">
-          </div>
-        </div>
-
+      
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-light btn-block" data-toggle="modal" data-target="#exampleModal">
+    I'm a Student..
+  </button>
 
       <div class="form-group">
         <label for="formGroupExampleInput">Phone</label>
@@ -79,3 +69,34 @@
   <br>
 
 </div>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Student</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                  <label for="formGroupExampleInput">Information of university</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="formGroupExampleInput2">Carnet</label>
+                  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

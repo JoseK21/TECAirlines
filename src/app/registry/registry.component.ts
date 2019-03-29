@@ -7,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistryComponent implements OnInit {
   s:boolean = false;
+  options: string = '';
 
   constructor() { }
 
   ngOnInit() {
   }
+
 
 }
