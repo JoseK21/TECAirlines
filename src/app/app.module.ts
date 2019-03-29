@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { RegistryComponent } from './registry/registry.component';
+import { SearchFlightsComponent } from './search-flights/search-flights.component';
+import { FlightsReservationComponent } from './flights-reservation/flights-reservation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     ErrorPageComponent,
-    RegistryComponent
+    RegistryComponent,
+    SearchFlightsComponent,
+    FlightsReservationComponent
   ],
   imports: [
     BrowserModule,
