@@ -1,0 +1,11 @@
+#p2 {
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+    background-image:url('/assets/b.jpg');
+    min-height: 91vmin;    
+}  
+
+#down{
+        font-size: 12pt;
+        padding: 17px 0;   
+}

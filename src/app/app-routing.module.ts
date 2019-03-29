@@ -7,13 +7,14 @@ import { FlightsReservationComponent } from './flights-reservation/flights-reser
 import { SearchFlightsComponent } from './search-flights/search-flights.component';
 
 const routes: Routes = [
+  // Inicio
   { path: '', component: MainComponent },
   // Error Page Not Found
   { path: 'errorPage', component: ErrorPageComponent },
   { path: 'registry', component: RegistryComponent },
   { path: 'flightsReservation', component: FlightsReservationComponent },
   { path: 'searchFlights', component: SearchFlightsComponent },
-
+  
   { path: '**', pathMatch: 'full', redirectTo: 'pageNotFound' }
 ];
 
