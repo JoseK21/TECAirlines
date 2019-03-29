@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { RegistryComponent } from './registry/registry.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    RegistryComponent
   ],
   imports: [
     BrowserModule,
