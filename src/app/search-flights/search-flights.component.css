@@ -1,7 +1,7 @@
 #p2 {
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover;
-    background-image:url('/assets/b.jpg');
+    background-image:url('/assets/air.jpg');
     min-height: 91vmin;    
 }  
 
