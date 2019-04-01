@@ -4,8 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
-import { ErrorPageComponent } from './error-page/error-page.component';
-import { RegistryComponent } from './registry/registry.component';
 import { SearchFlightsComponent } from './search-flights/search-flights.component';
 import { FlightsReservationComponent } from './flights-reservation/flights-reservation.component';
 
@@ -13,8 +11,6 @@ import { FlightsReservationComponent } from './flights-reservation/flights-reser
   declarations: [
     AppComponent,
     MainComponent,
-    ErrorPageComponent,
-    RegistryComponent,
     SearchFlightsComponent,
     FlightsReservationComponent
   ],
