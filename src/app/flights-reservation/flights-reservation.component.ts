@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlightsReservationComponent implements OnInit {
 
+  
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  
 }

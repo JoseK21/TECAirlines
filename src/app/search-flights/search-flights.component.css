@@ -7,5 +7,10 @@
 
 #down{
         font-size: 12pt;
-        padding: 17px 0;   
+        padding: 33px 0;   
 }
+
+#contenedorCuerpo{
+        position: relative;
+        bottom:0px;
+     }

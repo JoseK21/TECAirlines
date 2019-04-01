@@ -1,7 +1,7 @@
 <div>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <img src="/assets/airplaneSVG.svg" width="40" height="40" alt="">
-    <a class="navbar-brand " routerLink="/" style="color:white" >TECAirlines</a>
+    <a class="navbar-brand " routerLink="/" style="color:white">TECAirlines</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -25,6 +25,7 @@
     <form>
       <div class="row">
         <div class="col">
+          <label> Country 1 </label>
           <h3>Airport of origin</h3>
           <select class="form-control">
             <option>Airport 1</option>
@@ -35,6 +36,7 @@
           </select>
         </div>
         <div class="col">
+          <label> Country 2 </label>
           <h3>Arrival airport</h3>
           <select class="form-control">
             <option>Airport 1</option>
@@ -58,26 +60,35 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Airport of origin</th>
+          <th scope="col">Hour origin</th>
           <th scope="col">Arrival airport</th>
+          <th scope="col">Hour arrival</th>
+          <th scope="col">Price</th>
           <th scope="col">Reservation</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
+          <td>Costa Rica</td>
+          <td>04:30pm</td>
+          <td>Canada</td>
+          <td>8:00pm</td>
+          <td>$300,00</td>
           <td>
-              <button type="button" class="btn btn-outline-primary my-2 my-sm-0 btn-block" data-toggle="modal"
+            <button type="button" class="btn btn-outline-primary my-2 my-sm-0 btn-block" data-toggle="modal"
               data-target="#exampleModal" data-whatever="@mdo">Go</button>
           </td>
         </tr>
         <tr>
           <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
+          <td>Costa Rica</td>
+          <td>08:30am</td>
+          <td>Canada</td>
+          <td>11:15pm</td>
+          <td>$275,00</td>
           <td>
-              <button type="button" class="btn btn-outline-primary my-2 my-sm-0 btn-block" data-toggle="modal"
+            <button type="button" class="btn btn-outline-primary my-2 my-sm-0 btn-block" data-toggle="modal"
               data-target="#exampleModal" data-whatever="@mdo">Go</button>
           </td>
         </tr>
@@ -88,47 +99,168 @@
   </div>
 </div>
 
-<!--MODAL -->
+<!--MODAL Reservation -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Reservation</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" class="btn btn-outline-primary btn-sm " id="contenedorCuerpo" data-toggle="modal"
+          data-target="#exampleModalSIGNUP" data-whatever="@mdo">Sign Up</button>
+        <!-- <button type="button" class="btn btn-outline-primary btn-sm " id="contenedorCuerpo" routerLink="/registry">Sign Up</button>
+     -->
       </div>
       <div class="modal-body">
         <form>
-
-
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label"> Airport of origin:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-
-
-          <div>
-            <label for="message-text" class="col-form-label">Arrival airport:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-
-          <div>
-              <label for="message-text" class="col-form-label">Credit card:</label>
-              <input type="text" class="form-control" id="recipient-name">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Email</label>
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Password</label>
+                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+              </div>
             </div>
+          </form>
 
-
+          <img src="/assets/tarjetas.png" width="180" height="40" alt="">
+          <div>
+            <label for="message-text" class="col-form-label">Credit card:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div>
+            <label for="message-text" class="col-form-label">Security code</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
 
         </form>
       </div>
-
-
-
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">To buy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--MODAL SIGN UP-->
+<div class="modal fade" id="exampleModalSIGNUP" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+      </div>
+      <div class="modal-body">
+        <form>
+          <form>
+            <div class="form-row">
+
+              <!-- -->
+
+              <div>
+                <div>
+                  <form>
+                    <div class="form-group">
+                      <label for="formGroupExampleInput">Full name</label>
+                      <div class="form-row">
+                        <div class="col">
+                          <input type="text" class="form-control" placeholder="First name">
+                        </div>
+                        <div class="col">
+                          <input type="text" class="form-control" placeholder="Last name">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Button trigger modal -->
+                    <div class="form-check" >
+                      <input class="form-check-input" type="checkbox" id="gridCheck" (click)="checkHacker()">
+                      <label class="form-check-label" for="gridCheck">
+                        I'm a Student
+                      </label>
+                    </div>
+                      <div class="form-group" *ngIf="this.n == 1" >
+                        <label for="formGroupExampleInput">Information of university</label>
+                        <textarea class="form-control" rows="2"></textarea>
+                      </div>
+                      <div class="form-group" *ngIf="this.n == 1">
+                        <label for="formGroupExampleInput2">Carnet</label>
+                        <input type="text" class="form-control">
+                      </div>
+
+
+                    <div class="form-group">
+                      <label for="formGroupExampleInput">Phone</label>
+                      <input type="tel" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="formGroupExampleInput">E-mail</label>
+                      <input type="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <div class="form-row">
+                        <div class="col">
+                          <label for="formGroupExampleInput">Password</label>
+                          <input type="text" class="form-control">
+                        </div>
+                        <div class="col">
+                          <label for="formGroupExampleInput">Verificate Password</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Student</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="formGroupExampleInput">Information of university</label>
+                          <textarea class="form-control" rows="2"></textarea>
+                        </div>
+                        <div class="form-group">
+                          <label for="formGroupExampleInput2">Carnet</label>
+                          <input type="text" class="form-control">
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- -->
+
+
+
+            </div>
+          </form>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Sign Up</button>
       </div>
     </div>
   </div>

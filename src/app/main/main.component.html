@@ -1,22 +1,7 @@
 <div>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <img src="/assets/airplaneSVG.svg" width="40" height="40" alt="">
+    <img src="/assets/airplaneSVG.svg" width="30" height="30">
     <a class="navbar-brand" style="color:white">TECAirlines</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-      </ul>
-    </div>
-  <!--
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-1" type="text" placeholder="User Name">
-      <input class="form-control mr-sm-1" type="password" placeholder="Password">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log In</button>
-    </form>
-  -->  
   </nav>
 </div>
 <br><br>
@@ -30,28 +15,28 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="/assets/arizona.jpg" class="d-block w-100" alt="...">
+        <img src="/assets/california.jpg" class="d-block w-100" alt="/assets/err.jpg">
         <div class="carousel-caption d-none d-md-block">
           <h5>Arizona</h5>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="/assets/africa.jpg" class="d-block w-100" alt="...">
+        <img src="/assets/colombo.jpeg" class="d-block w-100" alt="/assets/err.jpg">
         <div class="carousel-caption d-none d-md-block">
           <h5>Gorongosa</h5>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="/assets/canada.jpg" class="d-block w-100" alt="...">
+        <img src="/assets/london1.jpg" class="d-block w-100" alt="/assets/err.jpg">
         <div class="carousel-caption d-none d-md-block">
           <h5>Antioquia</h5>
           <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="/assets/usa.jpg" class="d-block w-100" alt="...">
+        <img src="/assets/pakistan.jpg" class="d-block w-100" alt="/assets/err.jpg">
         <div class="carousel-caption d-none d-md-block">
           <h5>Colombia</h5>
           <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
@@ -75,13 +60,111 @@
         <div class="form-row">
           <div class="col-md-6 mb-3">
             <label for="validationDefault01">From(*)</label>
-            <input type="text" class="form-control" id="validationDefault01" placeholder="Enter your point of departure"
-              required>
+            <!-- Large modal -->
+
+            <button type="button" class="btn btn-outline-light btn-block" style="background: white;color:  rgb(90, 89, 89)" data-toggle="modal" data-target="#exampleModal"
+              data-whatever="@mdo">{{from}}</button>
+
+            <div class="modal fade" style="color:  rgb(90, 89, 89)" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Select country</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <div class="form-group col-md-6">
+                            <label for="inputState">Continent</label>
+                            <select id="inputState" class="form-control">
+                              <option selected>Choose...</option>
+                              <option>Africa</option>                              
+                              <option>Asia</option>
+                              <option>Europe</option>
+                              <option>Nort America</option>
+                              <option>Surt America</option>                              
+                              <option>Antarctica</option>
+                              <option>Oceania</option>
+                            </select>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="form-group col-md-6">
+                              <label>Country</label>
+                              <select #inputStateFrom class="form-control">
+                                <option selected>Choose...</option>
+                                <option>..</option>            
+                              </select>
+                            </div>
+                        </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="setFrom(inputStateFrom.value)" data-dismiss="modal">Select</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
           <div class="col-md-6 mb-3">
             <label for="validationDefault02">To(*)</label>
-            <input type="text" class="form-control" id="validationDefault02" placeholder="Enter your point of arrival"
-              required>
+            
+            <button type="button" class="btn btn-outline-light btn-block" style="background: white;color:  rgb(90, 89, 89)" data-toggle="modal" data-target="#exampleModal2"
+              data-whatever="@mdo">{{to}}</button>
+
+            <div class="modal fade" style="color:  rgb(90, 89, 89)" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Select country</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <div class="form-group col-md-6">
+                            <label for="inputState">Continent</label>
+                            <select id="inputState" class="form-control">
+                              <option selected>Choose...</option>
+                              <option>Africa</option>                              
+                              <option>Asia</option>
+                              <option>Europe</option>
+                              <option>Nort America</option>
+                              <option>Surt America</option>                              
+                              <option>Antarctica</option>
+                              <option>Oceania</option>
+                            </select>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <div class="form-group col-md-6">
+                              <label>Country</label>
+                              <select #inputStateTo class="form-control">
+                                <option selected>Choose...</option>
+                                <option>..</option>            
+                              </select>
+                            </div>
+                        </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="setTo(inputStateTo.value)" data-dismiss="modal">Select</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            
           </div>
         </div>
         <div class="form-row">
