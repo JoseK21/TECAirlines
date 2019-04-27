@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './main/main.component';
-import { FlightsReservationComponent } from './flights-reservation/flights-reservation.component';
-import { SearchFlightsComponent } from './search-flights/search-flights.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { PassegerCheckComponent } from './passeger-check/passeger-check.component';
+import { PromotionsComponent } from './promotions/promotions.component';
 
 const routes: Routes = [
-  { path: '', component: MainComponent },
-  { path: 'flightsReservation', component: FlightsReservationComponent },
-  { path: 'searchFlights', component: SearchFlightsComponent },  
+  { path: '', component: MainComponent },  
+  { path: 'signUp', component: SignUpComponent },
+  { path: 'checkIn', component: PassegerCheckComponent },
+  { path: 'promotions', component: PromotionsComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'pageNotFound' }
 ];
 

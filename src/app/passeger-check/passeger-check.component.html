@@ -1,0 +1,94 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <img src="/assets/logoTEC.png" width="40" height="35">
+    <a class="navbar-brand" style="color:white">TECAirlines</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="/promotions">Promotions</a>
+          </li>
+        <li class="nav-item active">
+          <a class="nav-link" >Check In<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" routerLink="/signUp">Sign Up</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+<div  id="bodyColor">
+<div class="container">
+    <br>
+    <br><br>
+    <br>
+    <form class="form-inline">
+      <div class="form-group mb-2">
+        <input #UseName type="text" class="form-control" placeholder="Username">
+      </div>
+      <div class="form-group mx-2">
+        <button type="button" class="btn btn-primary mb-2" (click)="goToCheck(UseName.value)">Search</button>
+      </div>
+    </form>
+    <br>
+  
+    <div class="row justify-content-center">
+      <div class="col-5" *ngIf="showMessage">
+        <div class=" alert alert-{{type}} alert-dismissible fade show" role="alert">
+          <strong>{{msj}}</strong> {{text}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="changeModeShow()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <div [hidden]="!showTable">
+      <table class="table table-dark">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Flight id</th>
+            <th scope="col">Departure Airport </th>
+            <th scope="col">Airport Arrival</th>
+            <th scope="col">Check</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let check of listCheck;  let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{check.flight_id}}</td>
+            <td>{{check.depart_ap}}</td>
+            <td>{{check.arrival_ap}}</td>
+            <td>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"
+                (click)="checkFlight(check.flight_id)"> Do
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">QR Code</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <ngx-qrcode qrc-element-type="url" [qrc-value]="codeQR"></ngx-qrcode>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

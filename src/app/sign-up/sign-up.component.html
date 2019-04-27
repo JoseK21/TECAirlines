@@ -1,0 +1,102 @@
+
+<div id="bodyColor" class="container-fluid">
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <img src="/assets/logoTEC.png" width="40" height="35">
+      <a class="navbar-brand" style="color:white">TECAirlines</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item active">
+              <a class="nav-link" routerLink="/promotions">Promotions</a>
+            </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/checkIn">Check In</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link">Sign Up<span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <br><br><br><br>
+    <form>
+        <div class="col-2">  <br>
+          </div>
+      <div class="form-row align-items-center">
+        <div class="col-3 align-self-center">
+          <img src="assets/users.svg" alt="">
+        </div>
+        <div class="col-1">
+        </div>
+        <div class="col align-self-center">
+          <div class="form-group">
+            Full name
+            <div class="form-row">
+              <div class="col-4">
+                <input #FN type="text" class="form-control" placeholder="First name" required>
+              </div>
+              <div class="col-4">
+                <input #LN type="text" class="form-control" placeholder="Last name" required>
+              </div>
+            </div>
+          </div>
+          <div class="form-check">
+            <input #IS class="form-check-input" type="checkbox" (click)="checkStudent();getUniversities()">I'm a Student
+          </div>
+          <div class="form-group" [hidden]="!isStudent">
+            <div class="form-row">
+              <div class="col-4">
+                University's name
+                <select #UVN class="form-control" size="1" >
+                  <option *ngFor="let univ of list_univ">{{univ}}</option>
+                </select>
+              </div>
+              <div class="col-4">
+                Carnet <input #C type="text" class="form-control" min="0" value="0" required>
+              </div>
+            </div>
+          </div>
+          <div class="form-row ">
+            <div class="col-4">
+              E-mail <input #EM type="email" class="form-control" required>
+            </div>
+            <div class="col-4">
+              Phone <input #P type="text" class="form-control" required>
+            </div>
+          </div>
+          <div class="form-row ">
+            <div class="col-4">
+              Username <input #UN type="text" class="form-control" required>
+            </div>
+            <div class="col-4">
+              Password <input #PW type="text" class="form-control" required>
+            </div>
+          </div>
+          <br>
+          <div class="form-row">
+            <div class="col-8" *ngIf="showMessage">
+              <div class="alert alert-{{type}} alert-dismissible fade show" role="alert">
+                <strong>{{msj}}</strong> {{text}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="changeModeShow()">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="form-row ">
+            <div class="col-8">
+              <button class="btn btn-success btn-block"
+                (click)="createCustomer(FN.value,LN.value,UVN.value,C.value,EM.value,P.value,UN.value,PW.value)"
+                type="button">Sign Up</button>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+  
+    </form>
+  </div>
