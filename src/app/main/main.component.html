@@ -54,177 +54,199 @@
   </div>
 
   <div id="bodyColor">
-    <br>
+    <br><br>
     <div class="container">
       <form>
         <div class="form-row">
           <div class="col-md-6 mb-3">
-            <label for="validationDefault01">From(*)</label>
-            <!-- Large modal -->
-
-            <button type="button" class="btn btn-outline-light btn-block" style="background: white;color:  rgb(90, 89, 89)" data-toggle="modal" data-target="#exampleModal"
-              data-whatever="@mdo">{{from}}</button>
-
-            <div class="modal fade" style="color:  rgb(90, 89, 89)" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-              aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Select country</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <form>
-                      <div class="form-group">
-                        <div class="form-group col-md-6">
-                            <label for="inputState">Continent</label>
-                            <select id="inputState" class="form-control">
-                              <option selected>Choose...</option>
-                              <option>Africa</option>                              
-                              <option>Asia</option>
-                              <option>Europe</option>
-                              <option>Nort America</option>
-                              <option>Surt America</option>                              
-                              <option>Antarctica</option>
-                              <option>Oceania</option>
-                            </select>
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          <div class="form-group col-md-6">
-                              <label>Country</label>
-                              <select #inputStateFrom class="form-control">
-                                <option selected>Choose...</option>
-                                <option>..</option>            
-                              </select>
-                            </div>
-                        </div>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" (click)="setFrom(inputStateFrom.value)" data-dismiss="modal">Select</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+            From(*)<button type="button" class="btn btn-outline-primary btn-block"
+              (click)="changeModal(0,0,0);getAirport()" data-toggle="modal" data-target="#exampleModal"
+              data-whatever="@mdo">{{ptD}}</button>
           </div>
           <div class="col-md-6 mb-3">
-            <label for="validationDefault02">To(*)</label>
-            
-            <button type="button" class="btn btn-outline-light btn-block" style="background: white;color:  rgb(90, 89, 89)" data-toggle="modal" data-target="#exampleModal2"
-              data-whatever="@mdo">{{to}}</button>
-
-            <div class="modal fade" style="color:  rgb(90, 89, 89)" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-              aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Select country</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <form>
-                      <div class="form-group">
-                        <div class="form-group col-md-6">
-                            <label for="inputState">Continent</label>
-                            <select id="inputState" class="form-control">
-                              <option selected>Choose...</option>
-                              <option>Africa</option>                              
-                              <option>Asia</option>
-                              <option>Europe</option>
-                              <option>Nort America</option>
-                              <option>Surt America</option>                              
-                              <option>Antarctica</option>
-                              <option>Oceania</option>
-                            </select>
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          <div class="form-group col-md-6">
-                              <label>Country</label>
-                              <select #inputStateTo class="form-control">
-                                <option selected>Choose...</option>
-                                <option>..</option>            
-                              </select>
-                            </div>
-                        </div>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" (click)="setTo(inputStateTo.value)" data-dismiss="modal">Select</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            
+            To(*)<button type="button" class="btn btn-outline-primary btn-block"
+              (click)="changeModal(0,1,0); getAirport()" data-toggle="modal" data-target="#exampleModal"
+              data-whatever="@mdo">{{ptA}}</button>
           </div>
         </div>
-        <div class="form-row">
-          <div class="col-md-4 mb-3">
-            <label for="validationDefault03">Departure(*)</label>
-            <input type="date" class="form-control" id="validationDefault03" required>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="validationDefault04">Return(*)</label>
-            <input type="date" class="form-control" id="validationDefault04" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="col-md-2 mb-3 ">
-            <div class="form-check ">
-              <input class="form-check-input" type="radio" name="r1" id="inlineR11" value="option1" checked>
-              <label class="form-check-label" for="inlineR11">Round Trip</label>
-            </div>
-            <div class="form-check ">
-              <input class="form-check-input" type="radio" name="r2" id="inlineR21" value="option2" checked>
-              <label class="form-check-label" for="inlineR12">Business Class</label>
-            </div>
-            <div class="form-check ">
-              <input class="form-check-input" type="radio" name="r3" id="inlineR31" value="option1" checked>
-              <label class="form-check-label" for="inlineR21">Exact dates</label>
-            </div>
-          </div>
-          <div class="col-md-2 mb-3 ">
-            <div class="form-check ">
-              <input class="form-check-input" type="radio" name="r1" id="inlineR12" value="option2">
-              <label class="form-check-label" for="inlineR22">One way</label>
-            </div>
-            <div class="form-check ">
-              <input class="form-check-input" type="radio" name="r2" id="inlineR22" value="option1">
-              <label class="form-check-label" for="inlineR31">Economy Class</label>
-            </div>
-            <div class="form-check ">
-              <input class="form-check-input" type="radio" name="r3" id="inlineR23" value="option2">
-              <label class="form-check-label" for="inlineR32">Flexible dates</label>
-            </div>
-          </div>
-          <div class="col-md-8 mb-5">
-            <div class="row">
-              <div class="col">
-                <span class="form-check-label">Adult(+12)</span>
-                <input type="number" max="10" min="0" value="0">
-              </div>
-              <div class="col">
-                <span class="form-check-label">Children(2-11)</span>
-                <input type="number" max="10" min="0" value="0">
-              </div>
-              <div class="col">
-                <span class="form-check-label">Infants(0-1)</span>
-                <input type="number" max="10" min="0" value="0">
-              </div>
-            </div>
-          </div>
-        </div>
-        <button class="btn btn-primary btn-block" routerLink="/searchFlights" type="submit">Submit form</button>
+        <button [disabled]="!enableSF" class="btn btn-primary btn-block" (click)="sendData()" type="button">Submit
+          form</button>
       </form>
       <br>
     </div>
   </div>
+
+  <div class="modal-footer" *ngIf="showMessage">
+    <div style="margin:0 auto;" class="alert alert-{{type}} alert-dismissible fade show" role="alert">
+      <strong>{{msj}}</strong>{{text}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeMessage()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+
+  <!--MODAL -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <!--Modal Select Airport-->
+  <div class="modal-content" *ngIf="showModal==0">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Select Airport</h5>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          Airport
+          <select #selection id="inputStateListaAirport" class="form-control" size="10">
+            <option *ngFor="let ap of ap_name">{{ap}}</option>
+          </select>
+          <br>
+          <button *ngIf="point==0" type="button" (click)="setptD(selection.value)"
+            class="btn btn-outline-success btn-block" data-dismiss="modal">Select</button>
+          <button *ngIf="point==1" type="button" (click)="setptA(selection.value)"
+            class="btn btn-outline-success btn-block" data-dismiss="modal">Select</button>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+  <!-- Modal Reservation-->
+  <div class="modal-content" *ngIf="showModal==1">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Reservation</h5>
+    </div>
+    <div class="modal-body">
+      <form *ngIf="!userCheck">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            User name<input #UN type="text" class="form-control" id="inputEmail4" required>
+          </div>
+          <div class="form-group col-md-6">
+            Password<input #P type="password" class="form-control" id="inputPassword4" required>
+          </div>
+        </div>
+        <button (click)="logIn(UN.value,P.value)" class="btn btn-outline-dark btn-block" type="button">Log
+          In</button><br>
+
+        <div class="modal-footer" *ngIf="modalMSG==0">
+          <div style="margin:0 auto;" class="alert alert-{{type}} alert-dismissible fade show" role="alert">
+            <strong>{{msj}}</strong>{{text}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeMessage_0()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </form>
+      <form *ngIf="userCheck">
+        <div>
+          <h6>Username: {{name}}</h6>
+          <button type="button" (click)="changeAcount();closeMessage_0()"
+            class="btn btn-outline-dark btn-block btn-sm">Change
+            Acount</button>
+          <br>
+          <div class="form-row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="selectWay">Way</label>
+                <select #Way class="form-control" id="selectWay">
+                  <option>Round Trip</option>
+                  <option>One way</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="selectClass">Class</label>
+                <select #Class class="form-control" id="selectClass">
+                  <option>Business Class</option>
+                  <option>Economy Class </option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+          <div class="form-row">
+            <div class="col-6">
+              <label>Departure</label>
+              <input #Date type="date" class="form-control" [value]="dateNOW" [min]="dateNOW">
+            </div>
+            <div class="col-3">
+              <label for="selectPassengers">Passengers</label>
+              <input #Passengers id="selectPassengers" type="number" pattern="^[0-9]+" max="10" min="1" value="1">
+            </div>
+          </div>
+          <div class="form-check">
+            <input #IS class="form-check-input" type="checkbox" (click)="checkAddCard()">Add Card
+          </div>
+          <div class="form-group" [hidden]="!wantAddCard">
+            <div class="form-row">
+              <div class="col-5">
+                Credit Card Number
+                <input #Ccn type="text" class="form-control" required>
+              </div>
+              <div class="col-2">
+                CVV
+                <input #Cvv type="text" class="form-control" required>
+              </div>
+              <div class="col-5">
+                Expiry Date
+                <input #Ed type="date" class="form-control" required>
+              </div>
+            </div>
+            <br>
+            <button type="button" (click)="addC(Ccn.value,Cvv.value,Ed.value)"
+              class="btn btn-outline-info btn-block btn-sm">Add</button>
+
+            <div class="modal-footer" *ngIf="modalMSG==1">
+              <div style="margin:0 auto;" class="alert alert-{{type}} alert-dismissible fade show" role="alert">
+                <strong>{{msj}}</strong>{{text}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"
+                  (click)="closeMessage_0()">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="form-group">
+            <p>Pay By</p>
+            <img src="/assets/tarjetas.png" width="180" height="40" alt="">
+          </div>
+          <div class="form-row">
+            <div class="col-5">
+              Credit Card Number
+              <select #Card class="form-control" size="1">
+                <option *ngFor="let cards of list_cards">{{cards}}</option>
+              </select>
+            </div>
+            <div class="col-2">
+              CVV
+              <input #Scode type="text" class="form-control" required>
+            </div>
+          </div>
+          <br>
+          <button class="btn btn-primary btn-block"
+            (click)="pay(Card.value,Scode.value,Way.value,Class.value,Passengers.value)" type="button">Pay</button>
+          <br>
+          <div class="modal-footer" *ngIf="modalMSG==2">
+            <div style="margin:0 auto;" class="alert alert-{{type}} alert-dismissible fade show" role="alert">
+              <strong>{{msj}}</strong>{{text}}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeMessage_0()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeMessage_0()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
