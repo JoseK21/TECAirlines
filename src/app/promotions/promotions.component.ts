@@ -250,7 +250,6 @@ export class PromotionsComponent implements OnInit {
    * sendData
    */
   public goToCheck(userName: string) {
-    // this.changeModeShow();
     if (userName.trim().length == 0) {
       this.editAlert("Warning! ", "Empty input", "warning",1);
     } else {

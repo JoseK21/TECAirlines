@@ -56,13 +56,15 @@ export class PassegerCheckComponent implements OnInit {
   /**
    * checkFlight  */
   public checkFlight(checkID:string) {    
-      this.service.PreCheckCustomer(checkID,this.username).subscribe((jsonTransfer) => {             //getListCheck(userName)
+      this.service.PreCheckCustomer(checkID,this.username).subscribe((jsonTransfer) => {   
         const userStr = JSON.stringify(jsonTransfer);
         const jsonWEBAPI = JSON.parse(JSON.parse(userStr));
         if (jsonWEBAPI.http_result == 1) {
           var array = JSON.parse("[" + jsonWEBAPI.flights + "]");
           if (array.length == 0) {
             this.editAlert("Sorry! ", "This user does't have reservations", "warning");
+            this.showTable = false;  
+            this.listCheck = [];
           } else {
             this.listCheck = array;
             this.showTable = true;             }
@@ -72,6 +74,13 @@ export class PassegerCheckComponent implements OnInit {
           alert("ERROR DEL JSON.... home.componet");
         }
       });
+  }
+
+  /**
+   * sendEmail
+   */
+  public sendEmail() {
+    console.log("Send Email in Process");
   }
 
   /**
