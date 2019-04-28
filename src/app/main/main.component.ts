@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-main',
@@ -65,6 +66,7 @@ export class MainComponent implements OnInit {
   constructor(private service: ServiceService) { }
 
   ngOnInit() {
+    this.dateNOW = formatDate(new Date(), 'yyyy-MM-dd', 'en');
   }
 
 

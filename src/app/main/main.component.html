@@ -133,15 +133,17 @@
             </tbody>
           </table>
           <br>
+          <br>
         </div>
       </div>
     </div>
+    <br>
+    <br>
   </form>
-
+  <br>
 </div>
 
-
-
+<br>
 <!--MODAL -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -250,7 +252,7 @@
                 </div>
                 <div class="col-5">
                   Expiry Date
-                  <input #Ed type="date" class="form-control" required>
+                  <input #Ed type="date" class="form-control" [value]="dateNOW" [min]="dateNOW" required>
                 </div>
               </div>
               <br>

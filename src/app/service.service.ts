@@ -102,7 +102,7 @@ export class ServiceService {
    * Book a flight
    * @param jsonData dataJson to transfer
    */
-  book(jsonData) {
+  book(jsonData) {    
     const path = `${this.api}booking`;
     return this.http.post(path, "'" + JSON.stringify(jsonData) + "'", httpOptions);
   }
@@ -129,6 +129,16 @@ export class ServiceService {
      */
   getPlaneModel() {
     const path = `${this.api}admin/airplanes`;
+    return this.http.get(path);
+  }
+
+  isStudent(userName: string) {
+    const path = `${this.api}${userName}/student`;
+    return this.http.get(path);
+  }
+
+  GetSales(){
+    const path = `${this.api}/sales`;
     return this.http.get(path);
   }
 }

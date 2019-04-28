@@ -1,25 +1,25 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <img src="/assets/logoTEC.png" width="40" height="35">
-    <a class="navbar-brand" style="color:white">TECAirlines</a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/">Home</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" routerLink="/promotions">Promotions</a>
-          </li>
-        <li class="nav-item active">
-          <a class="nav-link" >Check In<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" routerLink="/signUp">Sign Up</a>
-          </li>
-      </ul>
-    </div>
-  </nav>
-<div  id="bodyColor">
-<div class="container">
+  <img src="/assets/logoTEC.png" width="40" height="35">
+  <a class="navbar-brand" style="color:white">TECAirlines</a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/promotions">Promotions</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link">Check In<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/signUp">Sign Up</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div id="bodyColor">
+  <div class="container">
     <br>
     <br><br>
     <br>
@@ -32,7 +32,7 @@
       </div>
     </form>
     <br>
-  
+
     <div class="row justify-content-center">
       <div class="col-5" *ngIf="showMessage">
         <div class=" alert alert-{{type}} alert-dismissible fade show" role="alert">
@@ -43,7 +43,7 @@
         </div>
       </div>
     </div>
-  
+
     <div [hidden]="!showTable">
       <table class="table table-dark">
         <thead class="thead-light">
@@ -63,16 +63,17 @@
             <td>{{check.arrival_ap}}</td>
             <td>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"
-                (click)="checkFlight(check.flight_id)"> Do
+                (click)="checkFlight(check.flight_id)"> Go
               </button>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-  
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
+    <br>
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -82,7 +83,12 @@
             </button>
           </div>
           <div class="modal-body">
-            <ngx-qrcode qrc-element-type="url" [qrc-value]="codeQR"></ngx-qrcode>
+            <div class="row justify-content-md-center">
+              <h4>Please scan this QR code with a smartphone</h4>
+              <ngx-qrcode qrc-element-type="url" [qrc-value]="codeQR"></ngx-qrcode>
+              <h5>Thank you for your purchase and have a nice trip</h5>
+              <h6>TecAirlines</h6>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

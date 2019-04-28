@@ -1,23 +1,23 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <img src="/assets/logoTEC.png" width="40" height="35">
-    <a class="navbar-brand" style="color:white">TECAirlines</a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/">Home</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link">Promotions<span class="sr-only">(current)</span></a>
-          </li>
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/checkIn">Check In</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" routerLink="/signUp">Sign Up</a>
-          </li>
-      </ul>
-    </div>
-  </nav>
+  <img src="/assets/logoTEC.png" width="40" height="35">
+  <a class="navbar-brand" style="color:white">TECAirlines</a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link">Promotions<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/checkIn">Check In</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/signUp">Sign Up</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
 <div class="container-fluid" id="bodyColor">
   <br><br>
@@ -38,41 +38,42 @@
           In</button><br>
       </div>
     </div>
-    <div class="modal-footer" *ngIf="modalMSG==0">
-      <div style="margin:0 auto;" class="alert alert-{{type}} alert-dismissible fade show" role="alert">
+    <div class="form-row justify-content-center">
+      <div *ngIf="modalMSG==0" style="margin:0 auto;" class="alert alert-{{type}} alert-dismissible fade show"
+        role="alert">
         <strong>{{msj}}</strong>{{text}}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeMessage_0()">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeMessage()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
     </div>
+
 
     <form [hidden]="!showTable">
       <div class="container">
         <div class="container-fluid "> <br>
           <div class="container">
             <br>
-            <h3>{{destino}}</h3>
             <table #tableFlights class="table table-striped table-dark">
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Flight_id</th>
-                  <th scope="col">Deparment Date</th>
-                  <th scope="col">Economic Class Price</th>
-                  <th scope="col">First Class Price</th>
+                  <th scope="col">Flight Id</th>
+                  <th scope="col">Departure airport</th>
+                  <th scope="col">Arrival airport</th>
+                  <th scope="col">Discount</th>
                   <th scope="col">Reservation</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let item of listCheck;  let i = index">
+                <tr *ngFor="let item of list_promotions;  let i = index">
                   <th scope="row">{{i+1}}</th>
                   <td>{{item.flight_id}}</td>
-                  <td>{{item.depart_date}}</td>
-                  <td>{{item.price}}</td>
-                  <td>{{item.fc_price}}</td>
+                  <td>{{item.depart_ap}}</td>
+                  <td>{{item.arrival_ap}}</td>
+                  <td>{{item.discount}}</td>
                   <td><button type="button" class="btn btn-outline-primary my-2 my-sm-0 btn-block"
-                      (click)="changeModal(1,99,item)" data-toggle="modal" data-target="#exampleModal"
+                      (click)="changeModal(item)" data-toggle="modal" data-target="#exampleModal"
                       data-whatever="@mdo">Go</button>
                   </td>
                 </tr>
@@ -84,5 +85,123 @@
       </div>
     </form>
 
+  </div>
+</div>
+
+<!--MODAL -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <!-- Modal Reservation-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Reservation</h5>
+      </div>
+      <div class="modal-body">
+        <form *ngIf="!userCheck">
+          <div>
+            <h6>Username: {{userNAME}}</h6>
+
+            <div class="form-row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="selectWay">Way</label>
+                  <select #Way class="form-control" id="selectWay">
+                    <option>Round Trip</option>
+                    <option>One way</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="selectClass">Class</label>
+                  <select #Class class="form-control" id="selectClass">
+                    <option>Business Class</option>
+                    <option>Economy Class </option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+            <div class="form-row">
+              <div class="col-6">
+                <label>Departure</label>
+                <input #Date type="date" class="form-control" [value]="dateNOW" [min]="dateNOW">
+              </div>
+              <div class="col-3">
+                <label for="selectPassengers">Passengers</label>
+                <input #Passengers id="selectPassengers" type="number" pattern="^[0-9]+" max="10" min="1" value="1">
+              </div>
+            </div>
+            <div class="form-check">
+              <input #IS class="form-check-input" type="checkbox" (click)="checkAddCard()">Add Card
+            </div>
+            <div class="form-group" [hidden]="!wantAddCard">
+              <div class="form-row">
+                <div class="col-5">
+                  Credit Card Number
+                  <input #Ccn type="text" class="form-control" required>
+                </div>
+                <div class="col-2">
+                  CVV
+                  <input #Cvv type="text" class="form-control" required>
+                </div>
+                <div class="col-5">
+                  Expiry Date
+                  <input #Ed type="date" class="form-control" [value]="dateNOW" [min]="dateNOW" required>
+                </div>
+              </div>
+              <br>
+              <button type="button" (click)="addC(Ccn.value,Cvv.value,Ed.value)"
+                class="btn btn-outline-info btn-block btn-sm">Add</button>
+
+              <div class="modal-footer" *ngIf="modalMSG==1">
+                <div style="margin:0 auto;" class="alert alert-{{type}} alert-dismissible fade show" role="alert">
+                  <strong>{{msj}}</strong>{{text}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeMessage()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="form-group">
+              <p>Pay By</p>
+              <img src="/assets/tarjetas.png" width="180" height="40" alt="">
+            </div>
+            <div class="form-row">
+              <div class="col-5">
+                Credit Card Number
+                <select #Card class="form-control" size="1" (click)="getCard()">
+                  <option *ngFor="let cards of list_cards">{{cards}}</option>
+                </select>
+              </div>
+              <div class="col-2">
+                CVV
+                <input #Scode type="text" class="form-control" required>
+              </div>
+            </div>
+            <br>
+            <button class="btn btn-primary btn-block"
+              (click)="pay(Card.value,Scode.value,Way.value,Class.value,Passengers.value,Date.value)"
+              type="button">Pay</button>
+            <br>
+            <div *ngIf="modalMSG==2" style="margin:0 auto;" class="alert alert-{{type}} alert-dismissible fade show"
+              role="alert">
+              <strong>{{msj}}</strong>{{text}}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeMessage()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeMessage_0()">Close</button>
+
+        </div>
+      </div>
+    </div>
   </div>
 </div>

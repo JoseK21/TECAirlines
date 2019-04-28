@@ -1,6 +1,5 @@
 #bodyColor {
-    background-color: rgb(34,38,44);
-    color: aliceblue;
+    background-color: rgb(34,38,44);   
     min-height: 100vh;
     margin: 0; 
   }

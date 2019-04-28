@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-passeger-check',
@@ -15,6 +16,7 @@ export class PassegerCheckComponent implements OnInit {
   type: string;
   showTable: boolean;
   username:string;
+  
 
   codeQR = 'https://getbootstrap.com/docs/4.0/components/modal/';
   showMessage: boolean = false;
@@ -57,7 +59,6 @@ export class PassegerCheckComponent implements OnInit {
       this.service.PreCheckCustomer(checkID,this.username).subscribe((jsonTransfer) => {             //getListCheck(userName)
         const userStr = JSON.stringify(jsonTransfer);
         const jsonWEBAPI = JSON.parse(JSON.parse(userStr));
-        alert(jsonWEBAPI);
         if (jsonWEBAPI.http_result == 1) {
           var array = JSON.parse("[" + jsonWEBAPI.flights + "]");
           if (array.length == 0) {
