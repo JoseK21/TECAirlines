@@ -143,6 +143,8 @@ export class MainComponent implements OnInit {
       this.editAlert("Warning! ", "Empty inputs", "warning", 1);
     } else {
       const json = { card_number: Ccn, exp_date: Ed, security_code: Cvv, username: this.name, };
+      console.log(JSON.stringify(json));
+      
       this.service.addCard(json).subscribe((jsonTransfer) => {
         const userStr = JSON.stringify(jsonTransfer); // Object to String
         const jsonWEBAPI = JSON.parse(JSON.parse(userStr)); // String to Json

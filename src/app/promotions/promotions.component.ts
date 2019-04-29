@@ -54,6 +54,8 @@ export class PromotionsComponent implements OnInit {
       if (jsonWEBAPI.http_result == 1) {
         if (jsonWEBAPI.msg == "True") {
           this.modalMSG = -1;
+          console.log("Is a Student");
+          
           this.GetSales();
         } else {
           this.showTable = false;
@@ -72,18 +74,23 @@ export class PromotionsComponent implements OnInit {
    * GetSales
    */
   public GetSales() {
+    console.log("Listo para obtener ofertas");
+    
     this.service.GetSales().subscribe((jsonTransfer) => {
       const userStr = JSON.stringify(jsonTransfer);
       const jsonWEBAPI = JSON.parse(JSON.parse(userStr));
+
+      console.log("Array : ");
+      console.log(JSON.parse(userStr));
+      
       if (jsonWEBAPI.http_result == 1) {
         var array = JSON.parse("[" + jsonWEBAPI.sales + "]");
-        console.log(array);
-
+        console.log("Array : "+array);
         this.list_promotions = array;
         this.showTable = true;
       } else if (jsonWEBAPI.http_result == 0) {
         this.showTable = false;
-        this.editAlert("Error! ", jsonWEBAPI.msg, "warning", 1);
+        this.editAlert("Error! ", jsonWEBAPI.msg, "warning", 0);
       } else {
         alert("ERROR DEL JSON.... home.componet");
       }
