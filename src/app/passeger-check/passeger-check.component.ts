@@ -29,7 +29,8 @@ export class PassegerCheckComponent implements OnInit {
   /**
    * sendData
    */
-  public goToCheck(userName: string) {
+  public goToCheck(userName: string) {    
+    this.showMessage=false;
     if (userName.trim().length == 0) {
       this.editAlert("Warning! ", "Empty input", "warning");
     } else {
@@ -40,6 +41,7 @@ export class PassegerCheckComponent implements OnInit {
           var array = JSON.parse("[" + jsonWEBAPI.flights + "]");
           if (array.length == 0) {
             this.editAlert("Sorry! ", "This user does't have reservations", "warning");
+            this.showTable = false;  
           } else {
             this.listCheck = array;
             this.showTable = true;   

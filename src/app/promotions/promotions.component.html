@@ -24,7 +24,7 @@
   <br><br>
 
   <div class="container">
-    <div class="form-row justify-content-center">
+    <div class="form-row justify-content-center" style="color:white">
       <div class="form-group col-md-3">
         User name<input #UN type="text" class="form-control" id="inputEmail4" required>
       </div>
@@ -61,7 +61,7 @@
                   <h5 class="card-title">Promotion #{{i+1}}</h5>
                   <p class="card-text">Discount <strong class="text-muted">{{item.discount}}%</strong></p>
                   <p class="card-text">From {{item.depart_ap}} to {{item.arrival_ap}}</p>
-                  <p class="card-text"><small class="text-muted">Finish Date {{item.date}}</small></p>
+                  <p class="card-text"><small class="text-muted">>{{item.exp_date}}</small></p>
                   
                 </div>
               </div>
@@ -71,123 +71,5 @@
       </div>
     </form>
 
-  </div>
-</div>
-
-<!--MODAL -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <!-- Modal Reservation-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Reservation</h5>
-      </div>
-      <div class="modal-body">
-        <form *ngIf="!userCheck">
-          <div>
-            <h6>Username: {{userNAME}}</h6>
-
-            <div class="form-row">
-              <div class="col-6">
-                <div class="form-group">
-                  <label for="selectWay">Way</label>
-                  <select #Way class="form-control" id="selectWay">
-                    <option>Round Trip</option>
-                    <option>One way</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="form-group">
-                  <label for="selectClass">Class</label>
-                  <select #Class class="form-control" id="selectClass">
-                    <option>Business Class</option>
-                    <option>Economy Class </option>
-                  </select>
-                </div>
-              </div>
-
-            </div>
-            <div class="form-row">
-              <div class="col-6">
-                <label>Departure</label>
-                <input #Date type="date" class="form-control" [value]="dateNOW" [min]="dateNOW">
-              </div>
-              <div class="col-3">
-                <label for="selectPassengers">Passengers</label>
-                <input #Passengers id="selectPassengers" type="number" pattern="^[0-9]+" max="10" min="1" value="1">
-              </div>
-            </div>
-            <div class="form-check">
-              <input #IS class="form-check-input" type="checkbox" (click)="checkAddCard()">Add Card
-            </div>
-            <div class="form-group" [hidden]="!wantAddCard">
-              <div class="form-row">
-                <div class="col-5">
-                  Credit Card Number
-                  <input #Ccn type="text" class="form-control" required>
-                </div>
-                <div class="col-2">
-                  CVV
-                  <input #Cvv type="text" class="form-control" required>
-                </div>
-                <div class="col-5">
-                  Expiry Date
-                  <input #Ed type="date" class="form-control" [value]="dateNOW" [min]="dateNOW" required>
-                </div>
-              </div>
-              <br>
-              <button type="button" (click)="addC(Ccn.value,Cvv.value,Ed.value)"
-                class="btn btn-outline-info btn-block btn-sm">Add</button>
-
-              <div class="modal-footer" *ngIf="modalMSG==1">
-                <div style="margin:0 auto;" class="alert alert-{{type}} alert-dismissible fade show" role="alert">
-                  <strong>{{msj}}</strong>{{text}}
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeMessage()">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="form-group">
-              <p>Pay By</p>
-              <img src="/assets/tarjetas.png" width="180" height="40" alt="">
-            </div>
-            <div class="form-row">
-              <div class="col-5">
-                Credit Card Number
-                <select #Card class="form-control" size="1" (click)="getCard()">
-                  <option *ngFor="let cards of list_cards">{{cards}}</option>
-                </select>
-              </div>
-              <div class="col-2">
-                CVV
-                <input #Scode type="text" class="form-control" required>
-              </div>
-            </div>
-            <br>
-            <button class="btn btn-primary btn-block"
-              (click)="pay(Card.value,Scode.value,Way.value,Class.value,Passengers.value,Date.value)"
-              type="button">Pay</button>
-            <br>
-            <div *ngIf="modalMSG==2" style="margin:0 auto;" class="alert alert-{{type}} alert-dismissible fade show"
-              role="alert">
-              <strong>{{msj}}</strong>{{text}}
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeMessage()">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-          </div>
-        </form>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeMessage_0()">Close</button>
-
-        </div>
-      </div>
-    </div>
   </div>
 </div>

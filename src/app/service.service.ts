@@ -93,8 +93,8 @@ export class ServiceService {
    * @param jsonData dataJson to transfer
    * @param userName username of customer
    */
-  payFlight(jsonData, userName: string) {
-    const path = `${this.api}${userName}/pay-flight`;
+  payFlight(jsonData, flight_id: string, userName: string) {
+    const path = `${this.api}${userName}/${flight_id}/pay-flight`;
     return this.http.post(path, "'" + JSON.stringify(jsonData) + "'", httpOptions);
   }
 

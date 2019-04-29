@@ -9,14 +9,14 @@
           <a class="nav-link">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" routerLink="/promotions">Promotions</a>
-          </li>
+          <a class="nav-link" routerLink="/promotions">Promotions</a>
+        </li>
         <li class="nav-item active">
           <a class="nav-link" routerLink="/checkIn">Check In</a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" routerLink="/signUp">Sign Up</a>
-          </li>
+          <a class="nav-link" routerLink="/signUp">Sign Up</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -207,7 +207,7 @@
               Acount</button>
             <br>
             <div class="form-row">
-              <div class="col-6">
+              <div class="col-5">
                 <div class="form-group">
                   <label for="selectWay">Way</label>
                   <select #Way class="form-control" id="selectWay">
@@ -216,7 +216,7 @@
                   </select>
                 </div>
               </div>
-              <div class="col-6">
+              <div class="col-5">
                 <div class="form-group">
                   <label for="selectClass">Class</label>
                   <select #Class class="form-control" id="selectClass">
@@ -225,16 +225,17 @@
                   </select>
                 </div>
               </div>
-
-            </div>
-            <div class="form-row">
-              <div class="col-6">
-                <label>Departure</label>
-                <input #Date type="date" class="form-control" [value]="dateNOW" [min]="dateNOW">
-              </div>
-              <div class="col-3">
-                <label for="selectPassengers">Passengers</label>
-                <input #Passengers id="selectPassengers" type="number" pattern="^[0-9]+" max="10" min="1" value="1">
+              <div class="col-2">
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Passengers</label>
+                  <select #Passengers class="form-control" id="exampleFormControlSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
               </div>
             </div>
             <div class="form-check">
@@ -251,7 +252,7 @@
                   <input #Cvv type="text" class="form-control" required>
                 </div>
                 <div class="col-5">
-                  Expiry Date
+                  Expiration Date
                   <input #Ed type="date" class="form-control" [value]="dateNOW" [min]="dateNOW" required>
                 </div>
               </div>
@@ -286,10 +287,17 @@
                 CVV
                 <input #Scode type="text" class="form-control" required>
               </div>
+              <div class="col-4" [hidden]="!milesActive">
+                Pay with miles
+                <select #PMil class="form-control">
+                  <option>No</option>
+                  <option>Yes</option>
+                </select>
+              </div>
             </div>
             <br>
             <button class="btn btn-primary btn-block"
-              (click)="pay(Card.value,Scode.value,Way.value,Class.value,Passengers.value,Date.value)" type="button">Pay</button>
+              (click)="pay(Card.value,Scode.value,Way.value,Class.value,Passengers.value,PMil.value)" type="button">Pay</button>
             <br>
             <div class="modal-footer" *ngIf="modalMSG==2">
               <div style="margin:0 auto;" class="alert alert-{{type}} alert-dismissible fade show" role="alert">
