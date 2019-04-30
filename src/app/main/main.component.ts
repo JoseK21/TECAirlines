@@ -208,7 +208,6 @@ export class MainComponent implements OnInit {
    * pay
    */
   public pay(card: string, scode: string, Way: string, Class: string, Passengers: string, payMiles: string) {
-    alert(payMiles)
     if (card.trim() == "" || scode.trim() == "") {
       this.editAlert("Warning! ", "Empty inputs", "warning", 1);
     }
@@ -219,9 +218,6 @@ export class MainComponent implements OnInit {
       }
       const json = { card_number: card, security_code: scode, pay_miles: payM };
       console.log(JSON.parse(JSON.stringify(json)));
-
-      alert("Username: " + this.name + " Flight ID: " + this.selectFlightID);
-
       this.service.payFlight(json, this.name, this.selectFlightID).subscribe((jsonTransfer) => {
         const userStr = JSON.stringify(jsonTransfer);
         const jsonWEBAPI = JSON.parse(JSON.parse(userStr));

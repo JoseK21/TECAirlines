@@ -64,8 +64,6 @@ export class ServiceService {
    * @param dataFlightId  flight id selected
    */
   PreCheckCustomer(dataFlightId, username) {
-    console.log("Fligth ID : "+dataFlightId);
-    console.log("Username : "+username);
     const path = `${this.api}precheck/${username}/${dataFlightId}`;
     return this.http.post(path, "empty", httpOptions);
   }
@@ -94,7 +92,7 @@ export class ServiceService {
    * @param userName username of customer
    */
   payFlight(jsonData, flight_id: string, userName: string) {
-    const path = `${this.api}${userName}/${flight_id}/pay-flight`;
+    const path = `${this.api}${flight_id}/${userName}/pay-flight`;
     return this.http.post(path, "'" + JSON.stringify(jsonData) + "'", httpOptions);
   }
 
@@ -107,15 +105,7 @@ export class ServiceService {
     return this.http.post(path, "'" + JSON.stringify(jsonData) + "'", httpOptions);
   }
 
-  /**
-   * Reservation a flight
-   * @param jsonData dataJson to transfer
-   * @param userName Customer's userName
-   */
-  reservation(jsonData, userName: string) {
-    const path = `${this.api}${userName}/pay-flight`;
-    return this.http.post(path, "'" + JSON.stringify(jsonData) + "'", httpOptions);
-  }
+  
 
   /**
    * Get list of flights ids
