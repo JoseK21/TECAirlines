@@ -218,12 +218,12 @@ export class MainComponent implements OnInit {
       }
       const json = { card_number: card, security_code: scode, pay_miles: payM };
       console.log(JSON.parse(JSON.stringify(json)));
+      
       this.service.payFlight(json, this.name, this.selectFlightID).subscribe((jsonTransfer) => {
         const userStr = JSON.stringify(jsonTransfer);
         const jsonWEBAPI = JSON.parse(JSON.parse(userStr));
         if (jsonWEBAPI.http_result == 1) {
           this.reservation(Way, Class, Passengers);
-          // this.editAlert("Success! ", jsonWEBAPI.msg, "success", 1); Esta no porque se debe mostrar que si se realizo el pago o no
         } else if (jsonWEBAPI.http_result == 0) {
           this.editAlert("Error! ", jsonWEBAPI.msg, "warning", 1);
         } else {
