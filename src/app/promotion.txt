@@ -41,7 +41,7 @@
                 </div>
               </div>
             </form>
-            <img src="/assets/tarjetas.png" width="180" height="40" alt="">
+            <img src="assets/tarjetas.png" width="180" height="40" alt="">
             <div>
               <label for="message-text" class="col-form-label">Credit card:</label>
               <input type="text" class="form-control" id="recipient-name">
